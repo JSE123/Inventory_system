@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Livewire;
+
+use Livewire\Component;
+
+class TestComponent extends Component
+{
+
+    public $contador = 0;
+
+    public function incrementar()
+    {
+        $this->contador++;
+    }
+    
+    public function render()
+    {
+        return view('livewire.test-component');
+    }
+}
