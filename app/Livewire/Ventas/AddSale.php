@@ -66,7 +66,7 @@ class AddSale extends Component
     public function buscarProducto()
     {
         if (strlen($this->productoBusqueda) > 1) {
-            $this->products = Product::where('name', 'like', '%' . $this->productoBusqueda . '%')->limit(5)->get();
+            $this->products = Product::where('name', 'ILIKE', '%' . $this->productoBusqueda . '%')->limit(5)->get();
         } else {
             $this->products = [];
         }
@@ -83,9 +83,15 @@ class AddSale extends Component
         }
     }
 
+    // agrego producto al carrito
     public function agregarProducto(){
         if($this->productSeleccionado){
-            // $this->carrito = array_merge_recursive($this->carrito, [$this->productSeleccionado], ['cantidad' => $this->cantidad]);
+             //verificar si el producto tiene stock suficiente
+             $product = Product::find($this->productSeleccionado->id);
+             if($product->stock < $this->cantidad){
+                 session()->flash('message', 'El producto '.$product->name.' no tiene stock suficiente');
+                 return;
+             }
             $this->carrito[] = [
                 'id' => $this->productSeleccionado->id,
                 'name' => $this->productSeleccionado->name,
@@ -106,7 +112,7 @@ class AddSale extends Component
     }
 
     public function registrarVenta(){
-        if(!empty($this->clienteSeleccionado || !empty($this->carrito) || $this->cantidad > 0)){
+        if(!empty($this->clienteSeleccionado && !empty($this->carrito))){
             
             $total = 0;
             $sale_details = null;
@@ -118,6 +124,7 @@ class AddSale extends Component
 
             //calcular el total de la venta
             foreach($this->carrito as $item){
+               
                 $total += $item['total'];
             }
 
@@ -141,11 +148,20 @@ class AddSale extends Component
                     'sub_total' => $item['total']
                 ]);
             }
+
+            // decrementar stock
+            foreach($this->carrito as $item){
+                $product = Product::find($item['id']);
+                $product->stock -= $item['cantidad'];
+                $product->save();
+            }
+            
+
             $this->carrito = [];
             $this->clienteSeleccionado = null;
             $this->clienteBusqueda = '';
             session()->flash('message', 'Venta registrada correctamente');
-        
+            return redirect()->route('ventas.index');
         }else{
             session()->flash('message', 'Debes seleccionar un cliente y al menos un producto');
         }

@@ -2,27 +2,58 @@
 <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
     <h2 class="text-2xl font-bold text-gray-700 mb-4">Registrar Venta</h2>
 
+    
+    <!-- Alertas -->
     @if (session()->has('message'))
-        <div class="bg-green-100 text-green-700 p-2 rounded mb-2">
+        <div class="bg-green-100 text-green-700 p-2 rounded mb-2" id="alert-message">
             {{ session('message') }}
         </div>
     @endif
+
+    @if (session()->has('error'))
+        <div class="bg-red-100 text-red-700 p-2 rounded mb-2" id="alert-error">
+            {{ session('error') }}
+        </div>
+    @endif  
+
     <!-- Cliente y Fecha -->
     <div class="grid grid-cols-2 gap-4 mb-4">
         <div>
             <label class="block text-gray-700 font-semibold">Cliente:</label>
-            <input type="text" class="w-full p-2 border rounded" wire:model="clienteBusqueda"  wire:input="buscarCliente" placeholder="Buscar cliente...">
+
+            <!-- Mostrar Cliente Seleccionado -->
+            @if ($clienteSeleccionado)
+                <div class="p-2 bg-gray-100 rounded">
+                    Cliente seleccionado: <strong>{{ $clienteSeleccionado['name'] }}</strong>
+                </div>
+                <button wire:click="resetCliente" class="text-red-500 underline text-sm">Cambiar Cliente</button>
+            @else
+                <input type="text" class="w-full p-2 border rounded" wire:model="clienteBusqueda" wire:input="buscarCliente" placeholder="Buscar cliente...">
+                @if (!empty($clients))
+                    <div class="bg-white border rounded mt-1 max-h-40 overflow-y-auto">
+                        @foreach ($clients as $cliente)
+                            <div wire:click="seleccionarCliente({{ $cliente->id }})" class="p-2 cursor-pointer hover:bg-gray-200">
+                                {{ $cliente->name }}
+                            </div>
+                        @endforeach
+                    </div>
+                @endif
+                <button wire:click="agregarNuevoCliente" class="mt-2 text-blue-500 underline">
+                    <a href="{{route('clientes.create')}}">Registrar nuevo cliente</a>
+                </button>
+            @endif
+            {{-- <input type="text" class="w-full p-2 border rounded" wire:model="clienteBusqueda"  wire:input="buscarCliente" placeholder="Buscar cliente...">
             @if (!empty($clients))
                 <div class="bg-white border rounded mt-1 max-h-40 overflow-y-auto">
                     @foreach ($clients as $cliente)
                         <div wire:click="seleccionarCliente('{{ $cliente->id }}')" class="p-2 cursor-pointer hover:bg-gray-200">{{ $cliente->name }}</div>
                     @endforeach
                 </div>
-            @endif
-            <button wire:click="agregarNuevoCliente" class="mt-2 text-blue-500 underline">
+            @endif --}}
+            {{-- <button wire:click="agregarNuevoCliente" class="mt-2 text-blue-500 underline">
                 
                 <a href="{{route('clientes.create')}}">Registrar nuevo cliente</a>
-            </button>
+            </button> --}}
         </div>
         <div>
             <label class="block text-gray-700 font-semibold">Fecha:</label>
