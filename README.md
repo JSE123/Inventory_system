@@ -1,66 +1,113 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 Sistema de Inventario / Inventory Management System (Laravel + Livewire)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Una aplicación web para la gestión de productos, categorías y ventas en tiempo real utilizando **Laravel**, **Livewire** y **PostgreSQL**.  
+Incluye autenticación de usuarios, operaciones CRUD, navegación dinámica y una interfaz moderna y responsiva.
 
-## About Laravel
+A web application for managing products, categories, and sales in real time using **Laravel**, **Livewire**, and **PostgreSQL**.  
+Includes user authentication, CRUD operations, dynamic navigation, and a modern responsive interface.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🧩 Características / Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+✔️ Gestión de productos y categorías  
+✔️ Actualizaciones en tiempo real con **Livewire**  
+✔️ Sistema de autenticación por defecto de Laravel  
+✔️ Base de datos **PostgreSQL**  
+✔️ Navegación lateral dinámica con componentes  
+✔️ Interfaz adaptable para administradores y usuarios estándar  
+✔️ Arquitectura limpia y escalable  
 
-## Learning Laravel
+✔️ Product and category management  
+✔️ Real-time updates with **Livewire**  
+✔️ Laravel’s default authentication system  
+✔️ **PostgreSQL** database  
+✔️ Dynamic sidebar navigation  
+✔️ Role-based interface for admin and standard users  
+✔️ Clean and scalable architecture  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🛠️ Tecnologías utilizadas / Technologies Used
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+| Categoría / Category | Tecnologías / Technologies |
+|----------------------|----------------------------|
+| **Backend** | Laravel 11 (PHP 8.3) |
+| **Frontend** | Livewire, Blade Templates|
+| **Base de datos / Database** | PostgreSQL |
+| **Estilos / Styling** |  CSS |
+| **Autenticación / Auth** | Laravel Breeze (default) |
+| **Herramientas / Tools** | Composer, Artisan CLI, Git |
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🧱 Arquitectura / Architecture Overview
 
-### Premium Partners
+El proyecto sigue el patrón **MVC (Modelo–Vista–Controlador)** característico de Laravel.  
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+The project follows the **MVC (Model–View–Controller)** pattern used by Laravel.
 
-## Contributing
+app/
+├── Http/
+│ ├── Controllers/ # Lógica y controladores / Controllers and logic
+│ └── Middleware/
+├── Livewire/ # Componentes Livewire / Livewire components
+├── Models/ # Modelos Eloquent / Eloquent models
+├── Views/ # Vistas Blade / Blade templates
+└── Providers/
+database/
+├── migrations/ # Estructura de la base / Database schema
+└── seeders/ # Datos iniciales / Seed data
+routes/
+├── web.php # Rutas principales / Main routes
+└── api.php # (Opcional / Optional)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## ⚙️ Configuración / Setup & Configuration
 
-## Security Vulnerabilities
+### 🔧 Requisitos / Requirements
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- PHP 8.3+
+- Composer
+- PostgreSQL
+- Node.js
+- Git
 
-## License
+### ⚙️ Pasos de instalación / Setup Steps
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Clonar el repositorio / Clone the repository**
+   ```bash
+   git clone https://github.com/tuusuario/inventario-livewire.git
+   cd inventario-livewire
+2. **Instalar dependencias / Install dependencies**
+composer install
+npm install && npm run dev
+3. **Configurar entorno / Set environment variables**
+cp .env.example .env
+Ejemplo de configuración de base de datos / Example database configuration:
+
+	DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=inventory_db
+DB_USERNAME=postgres
+DB_PASSWORD=yourpassword
+
+4. **Generar clave de aplicación / Generate app key**
+php artisan key:generate
+5. **Ejecutar migraciones y seeders / Run migrations and seeders**
+php artisan migrate --seed
+
+6. **Iniciar servidor local / Start the development server**
+npm run dev
+php artisan serve
+🔗 Abre en tu navegador / Open in browser:
+👉 http://localhost:8000
+
+## 👨‍💻 Autor
+
+**José Silva**  
+Backend Developer — Laravel | Java | Spring Boot 
+[LinkedIn](https://www.linkedin.com/in/tu-perfil) | [GitHub](https://github.com/tu-usuario)
