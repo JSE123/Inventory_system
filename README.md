@@ -87,12 +87,12 @@ npm install && npm run dev
 cp .env.example .env
 Ejemplo de configuración de base de datos / Example database configuration:
 
-	DB_CONNECTION=pgsql
-DB_HOST=127.0.0.1
-DB_PORT=5432
-DB_DATABASE=inventory_db
-DB_USERNAME=postgres
-DB_PASSWORD=yourpassword
+	DB_CONNECTION=pgsql<br>
+DB_HOST=127.0.0.1<br>
+DB_PORT=5432<br>
+DB_DATABASE=inventory_db<br>
+DB_USERNAME=postgres<br>
+DB_PASSWORD=yourpassword<br>
 
 4. **Generar clave de aplicación / Generate app key**
 php artisan key:generate
