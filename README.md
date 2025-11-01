@@ -47,21 +47,20 @@ El proyecto sigue el patrón **MVC (Modelo–Vista–Controlador)** característ
 
 The project follows the **MVC (Model–View–Controller)** pattern used by Laravel.
 
-app/
-├── Http/
-│ ├── Controllers/ # Lógica y controladores / Controllers and logic
-│ └── Middleware/
-├── Livewire/ # Componentes Livewire / Livewire components
-├── Models/ # Modelos Eloquent / Eloquent models
-├── Views/ # Vistas Blade / Blade templates
-└── Providers/
-database/
-├── migrations/ # Estructura de la base / Database schema
-└── seeders/ # Datos iniciales / Seed data
-routes/
-├── web.php # Rutas principales / Main routes
-└── api.php # (Opcional / Optional)
-
+app/<br>
+├── Http/<br>
+ │ ├── Controllers/ # Lógica y controladores / Controllers and logic<br>
+ │ └── Middleware/<br>
+├── Livewire/ # Componentes Livewire / Livewire components<br>
+├── Models/ # Modelos Eloquent / Eloquent models<br>
+├── Views/ # Vistas Blade / Blade templates<br>
+└── Providers/<br>
+database/<br>
+├── migrations/ # Estructura de la base / Database schema<br>
+└── seeders/ # Datos iniciales / Seed data<br>
+routes/<br>
+├── web.php # Rutas principales / Main routes<br>
+└── api.php # (Opcional / Optional)<br>
 
 ---
 
